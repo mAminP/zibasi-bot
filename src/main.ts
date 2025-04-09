@@ -8,6 +8,11 @@ console.log(
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  
+  // Enable graceful shutdown
+  app.enableShutdownHooks();
+  
   await app.listen(port);
 }
+
 bootstrap();
